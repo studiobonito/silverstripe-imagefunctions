@@ -1,3 +1,3 @@
 <?php
 
-Object::add_extension('Image', 'ImageFunctionsDecorator');
+Object::add_extension('Image', 'ImageFunctionsExtension');
