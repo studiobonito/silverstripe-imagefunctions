@@ -6,7 +6,7 @@ Image Functions Module adds more image functions to the Image object. Specifical
 
 ## Requirements
 
-SilverStripe 2.4 or newer.
+SilverStripe 3.0 or newer.
 
 ## Installation Instructions
 
@@ -14,6 +14,6 @@ Copy the 'imagefunctions' folder to your the root of your SilverStripe installat
 
 ## Usage Overview
 
-	<% control Image %>
+	<% with Image %>
 		$RatioCrop(200,300)
-	<% end_control %>
+	<% end_with %>

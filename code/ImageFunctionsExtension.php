@@ -1,5 +1,5 @@
 <?php
-class ImageFunctionsDecorator extends DataObjectDecorator {
+class ImageFunctionsExtension extends DataExtension {
 	
 	public function RatioCrop($width, $height) {
 		$image = $this->owner->getFormattedImage('SetRatioSize', $width, $height);
