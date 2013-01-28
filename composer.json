@@ -1,0 +1,16 @@
+{
+    "name": "studiobonito/imagefunctions",
+    "description": "The Image Functions module adds more image functions to the Image object on your Silverstripe site.",
+    "type": "silverstripe-module",
+    "keywords": ["silverstripe", "image"],
+    "authors": [
+        {
+            "name": "Tom Densham",
+            "email": "tom.densham@studiobonito.co.uk"
+        }
+    ],
+    "require": {
+        "silverstripe/framework": "3.*",
+        "composer/installers": "*"
+    }
+}
