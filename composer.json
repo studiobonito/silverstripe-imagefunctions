@@ -1,6 +1,6 @@
 {
-    "name": "studiobonito/imagefunctions",
-    "description": "The Image Functions module adds more image functions to the Image object on your Silverstripe site.",
+    "name": "studiobonito/silverstripe-imagefunctions",
+    "description": "Image Functions Module primarily adds more image functions to the Image object but it also adds some useful SiteConfig settings.",
     "type": "silverstripe-module",
     "keywords": ["silverstripe", "image"],
     "authors": [
@@ -10,7 +10,13 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "3.*",
-        "composer/installers": "*"
+        "php": ">=5.3.2",
+        "silverstripe/framework": "3.*"
+    },
+    "support": {
+        "issues": "https://github.com/studiobonito/silverstripe-imagefunctions/issues"
+    },
+    "extra": {
+        "installer-name": "imagefunctions"
     }
 }
