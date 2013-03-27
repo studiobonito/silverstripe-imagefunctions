@@ -1,8 +1,8 @@
 <?php
 
-Object::add_extension('Image', 'ImageFunctionsExtension');
+Image::add_extension('ImageFunctionsExtension');
 
-Object::add_extension('Page', 'PlaceholderImagePageExtension');
-Object::add_extension('SiteConfig', 'PlaceholderImageSiteConfigExtension');
+Page::add_extension('PlaceholderImagePageExtension');
+SiteConfig::add_extension('PlaceholderImageSiteConfigExtension');
 
 GD::set_default_quality(100);
