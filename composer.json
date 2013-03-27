@@ -3,6 +3,7 @@
     "description": "Image Functions Module primarily adds more image functions to the Image object but it also adds some useful SiteConfig settings.",
     "type": "silverstripe-module",
     "keywords": ["silverstripe", "image"],
+    "license": "BSD-2-Clause",
     "authors": [
         {
             "name": "Tom Densham",
