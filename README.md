@@ -6,7 +6,7 @@ Image Functions Module primarily adds more image functions to the Image object b
 
 ## Requirements
 
-SilverStripe 3.1 or newer.
+SilverStripe 3.0 or newer.
 
 ## Installation Instructions
 

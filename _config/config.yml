@@ -1,0 +1,9 @@
+Image:
+  extensions:
+    - ImageFunctionsExtension
+Page:
+  extensions:
+    - PlaceholderImagePageExtension
+SiteConfig:
+  extensions:
+    - PlaceholderImageSiteConfigExtension

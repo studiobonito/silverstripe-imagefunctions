@@ -17,9 +17,9 @@ class PlaceholderImagePageExtension extends DataExtension
      * @param int $height
      * @return Image | string
      */
-    public function PlacehoderImage($width = null, $height = null)
+    public function PlaceholderImage($width = null, $height = null)
     {
-        $image = $this->getPlaceholderImage($this->owner);
+        $image = $this->getPlaceholderImageRecursive($this->owner);
 
         if(!isset($image)) {
 
@@ -29,7 +29,7 @@ class PlaceholderImagePageExtension extends DataExtension
             
         }
 
-        if(isset($image)) {
+        if(isset($image) && $image->exists()) {
 
             if($image->hasMethod('RatioCrop') && ($width) && ($height)) {
 
@@ -41,7 +41,10 @@ class PlaceholderImagePageExtension extends DataExtension
 
         }
 
-        return '<img src="http://placehold.it/690x230" alt="">';
+        $width = $width ?: 690;
+        $height = $height ?: 230;
+
+        return "<img src=\"http://placehold.it/{$width}x{$height}\" width=\"{$width}\" height=\"{$height}\" alt=\"\" />";
     }
 
     /**
@@ -50,7 +53,7 @@ class PlaceholderImagePageExtension extends DataExtension
      * @param DataObject $object
      * @return Image | null
      */
-    protected function getPlaceholderImage(DataObject $object)
+    protected function getPlaceholderImageRecursive(DataObject $object)
     {
         if($object->has_one('PlaceholderImage')) {
 
@@ -64,9 +67,9 @@ class PlaceholderImagePageExtension extends DataExtension
 
         }
 
-        $parentObject = $object->Parent();
+        $parentObject = $object->hasMethod('Parent') ? $object->Parent() : null;
 
-        return isset($parentObject) && $parentObject->exists() ? $this->getPlaceholderImage($parentObject) : null;
+        return isset($parentObject) && $parentObject->exists() ? $this->getPlaceholderImageRecursive($parentObject) : null;
     }
 
 }
