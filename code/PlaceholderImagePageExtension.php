@@ -29,7 +29,7 @@ class PlaceholderImagePageExtension extends DataExtension
             
         }
 
-        if(isset($image)) {
+        if(isset($image) && $image->exists()) {
 
             if($image->hasMethod('RatioCrop') && ($width) && ($height)) {
 
