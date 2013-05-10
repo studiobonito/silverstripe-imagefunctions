@@ -41,7 +41,10 @@ class PlaceholderImagePageExtension extends DataExtension
 
         }
 
-        return '<img src="http://placehold.it/690x230" alt="">';
+        $width = $width ?: 690;
+        $height = $height ?: 230;
+
+        return "<img src=\"http://placehold.it/{$width}x{$height}\" width=\"{$width}\" height=\"{$height}\" alt=\"\" />";
     }
 
     /**
