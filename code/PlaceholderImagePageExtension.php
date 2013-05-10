@@ -64,7 +64,7 @@ class PlaceholderImagePageExtension extends DataExtension
 
         }
 
-        $parentObject = $object->Parent();
+        $parentObject = $object->hasMethod('Parent') ? $object->Parent() : null;
 
         return isset($parentObject) && $parentObject->exists() ? $this->getPlaceholderImageRecursive($parentObject) : null;
     }
