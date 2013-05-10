@@ -47,6 +47,36 @@ class PlaceholderImagePageExtension extends DataExtension
         return "<img src=\"http://placehold.it/{$width}x{$height}\" width=\"{$width}\" height=\"{$height}\" alt=\"\" />";
     }
 
+    public function PlaceholderImageURL($width = null, $height = null)
+    {
+        $image = $this->getPlaceholderImageRecursive($this->owner);
+
+        if(!isset($image)) {
+
+            $config = SiteConfig::current_site_config();
+
+            $image = $config->PlaceholderImage();
+
+        }
+
+        if(isset($image) && $image->exists()) {
+
+            if($image->hasMethod('RatioCrop') && ($width) && ($height)) {
+
+                return $image->RatioCrop($width, $height).URL;
+
+            }
+
+            return $image.URL;
+
+        }
+
+        $width = $width ?: 690;
+        $height = $height ?: 230;
+
+        return "http://placehold.it/{$width}x{$height}";
+    }
+
     /**
      * Recursivly search for a PlaceholderImage.
      *
