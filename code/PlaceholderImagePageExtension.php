@@ -17,7 +17,7 @@ class PlaceholderImagePageExtension extends DataExtension
      * @param int $height
      * @return Image | string
      */
-    public function PlacehoderImage($width = null, $height = null)
+    public function PlaceholderImage($width = null, $height = null)
     {
         $image = $this->getPlaceholderImage($this->owner);
 
