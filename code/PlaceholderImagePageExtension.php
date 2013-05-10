@@ -19,7 +19,7 @@ class PlaceholderImagePageExtension extends DataExtension
      */
     public function PlaceholderImage($width = null, $height = null)
     {
-        $image = $this->getPlaceholderImage($this->owner);
+        $image = $this->getPlaceholderImageRecursive($this->owner);
 
         if(!isset($image)) {
 
@@ -50,7 +50,7 @@ class PlaceholderImagePageExtension extends DataExtension
      * @param DataObject $object
      * @return Image | null
      */
-    protected function getPlaceholderImage(DataObject $object)
+    protected function getPlaceholderImageRecursive(DataObject $object)
     {
         if($object->has_one('PlaceholderImage')) {
 
@@ -66,7 +66,7 @@ class PlaceholderImagePageExtension extends DataExtension
 
         $parentObject = $object->Parent();
 
-        return isset($parentObject) && $parentObject->exists() ? $this->getPlaceholderImage($parentObject) : null;
+        return isset($parentObject) && $parentObject->exists() ? $this->getPlaceholderImageRecursive($parentObject) : null;
     }
 
 }
