@@ -28,9 +28,14 @@ class PlaceholderImageSiteConfigExtension extends DataExtension
      */
     public function updateCMSFields(FieldList $fields)
     {
-        $placeholderImageUploadField = new UploadField('PlaceholderImage', 'Placeholder Image');
+        $placeholderImageUploadField = new UploadField(
+            'PlaceholderImage',
+            _t('PlaceholderImageSiteConfigExtension.PLACEHOLDERIMAGE', 'Placeholder Image')
+        );
         $placeholderImageUploadField->allowedExtensions = array('jpg', 'gif', 'png');
-        
+
+        $fields->findOrMakeTab('Root.Images', _t('PlaceholderImageSiteConfigExtension.IMAGES', 'Images'));
+
         $fields->addFieldToTab('Root.Images', $placeholderImageUploadField);
 
         return $fields;
