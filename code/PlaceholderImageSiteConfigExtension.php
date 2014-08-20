@@ -23,8 +23,6 @@ class PlaceholderImageSiteConfigExtension extends DataExtension
 
     /**
      * Returns a FieldList with which to create the editing form. {@link SiteTree::getCMSFields()}
-     *
-     * @return FieldList
      */
     public function updateCMSFields(FieldList $fields)
     {
@@ -37,8 +35,6 @@ class PlaceholderImageSiteConfigExtension extends DataExtension
         $fields->findOrMakeTab('Root.Images', _t('PlaceholderImageSiteConfigExtension.IMAGES', 'Images'));
 
         $fields->addFieldToTab('Root.Images', $placeholderImageUploadField);
-
-        return $fields;
     }
 
 }
