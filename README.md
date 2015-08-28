@@ -1,3 +1,8 @@
+# WARNING: Module depreciated
+
+This SilverStripe module is depreciated please consider using the
+[`silverstripe-imageextension`](https://github.com/heyday/silverstripe-imageextension) module instead.
+
 # Image Functions Module
 
 ## Overview
