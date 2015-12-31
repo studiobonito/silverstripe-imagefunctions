@@ -1,5 +1,6 @@
 <?php
-class ImageFunctionsExtension extends DataExtension {
+class ImageFunctionsExtension extends DataExtension
+{
 
     /**
      * Resize the image by preserving aspect ratio, keeping the image inside the
@@ -11,7 +12,8 @@ class ImageFunctionsExtension extends DataExtension {
      *
      * @return Image
      */
-    public function RatioCrop($width, $height) {
+    public function RatioCrop($width, $height)
+    {
         return $this->owner->isSize($width, $height)
             ? $this->owner
             : $this->owner->getFormattedImage('RatioCrop', $width, $height);
@@ -27,7 +29,8 @@ class ImageFunctionsExtension extends DataExtension {
      *
      * @return Image_Backend
      */
-    public function generateRatioCrop(Image_Backend $backend, $width, $height) {
+    public function generateRatioCrop(Image_Backend $backend, $width, $height)
+    {
         $this->owner->generateFormattedImage('SetRatioSize', $width, $height);
         return $backend->croppedResize($width, $height);
     }

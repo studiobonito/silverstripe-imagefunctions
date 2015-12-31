@@ -35,5 +35,4 @@ class PlaceholderImagePerPageExtension extends DataExtension
 
         return $fields;
     }
-
 }
