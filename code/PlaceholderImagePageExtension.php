@@ -21,24 +21,18 @@ class PlaceholderImagePageExtension extends DataExtension
     {
         $image = $this->getPlaceholderImageRecursive($this->owner);
 
-        if(!isset($image)) {
-
+        if (!isset($image)) {
             $config = SiteConfig::current_site_config();
 
             $image = $config->PlaceholderImage();
-            
         }
 
-        if(isset($image) && $image->exists()) {
-
-            if($image->hasMethod('RatioCrop') && ($width) && ($height)) {
-
+        if (isset($image) && $image->exists()) {
+            if ($image->hasMethod('RatioCrop') && ($width) && ($height)) {
                 return $image->RatioCrop($width, $height);
-
             }
 
             return $image;
-
         }
 
         $width = $width ?: 690;
@@ -51,24 +45,18 @@ class PlaceholderImagePageExtension extends DataExtension
     {
         $image = $this->getPlaceholderImageRecursive($this->owner);
 
-        if(!isset($image)) {
-
+        if (!isset($image)) {
             $config = SiteConfig::current_site_config();
 
             $image = $config->PlaceholderImage();
-
         }
 
-        if(isset($image) && $image->exists()) {
-
-            if($image->hasMethod('RatioCrop') && ($width) && ($height)) {
-
+        if (isset($image) && $image->exists()) {
+            if ($image->hasMethod('RatioCrop') && ($width) && ($height)) {
                 return $image->RatioCrop($width, $height).URL;
-
             }
 
             return $image.URL;
-
         }
 
         $width = $width ?: 690;
@@ -85,21 +73,16 @@ class PlaceholderImagePageExtension extends DataExtension
      */
     protected function getPlaceholderImageRecursive(DataObject $object)
     {
-        if($object->has_one('PlaceholderImage')) {
-
+        if ($object->has_one('PlaceholderImage')) {
             $image = $object->getComponent('PlaceholderImage');
 
-            if($image->exists()) {
-
+            if ($image->exists()) {
                 return $image;
-
             }
-
         }
 
         $parentObject = $object->hasMethod('Parent') ? $object->Parent() : null;
 
         return isset($parentObject) && $parentObject->exists() ? $this->getPlaceholderImageRecursive($parentObject) : null;
     }
-
 }
