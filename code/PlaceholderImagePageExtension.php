@@ -26,7 +26,7 @@ class PlaceholderImagePageExtension extends DataExtension
             $config = SiteConfig::current_site_config();
 
             $image = $config->PlaceholderImage();
-            
+
         }
 
         if(isset($image) && $image->exists()) {
